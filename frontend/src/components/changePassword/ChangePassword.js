@@ -25,7 +25,7 @@ const ChangePassword = () => {
     e.preventDefault();
 
     if (password !== password2) {
-      return toast.error("New passwords do not match");
+      return toast.error("La nueva contraseña no coincide");
     }
 
     const formData = {
@@ -34,7 +34,7 @@ const ChangePassword = () => {
     };
 
     const data = await changePassword(formData);
-    toast.success(data);
+    toast.success("Contraseña actualizada");
     navigate("/profile");
   };
 

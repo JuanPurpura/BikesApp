@@ -21,9 +21,9 @@ const Contact = () => {
       const response = await axios.post(`${BACKEND_URL}/api/contactus`, data);
       setSubject("");
       setMessage("");
-      toast.success(response.data.message);
+      toast.success("Correo enviado correctamente");
     } catch (error) {
-      toast.error(error.message);
+      toast.error("Ocurrió un error al enviar el correo");
     }
   };
 

@@ -164,13 +164,13 @@ const productSlice = createSlice({
         state.isError = false;
         console.log(action.payload);
         state.products.push(action.payload);
-        toast.success("Product added successfully");
+        toast.success("Producto añadido");
       })
       .addCase(createProduct.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        toast.error(action.payload);
+        toast.error("Producto no añadido");
       })
       .addCase(getProducts.pending, (state) => {
         state.isLoading = true;
@@ -186,7 +186,7 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        toast.error(action.payload);
+        toast.error("Error obteniendo productos");
       })
       .addCase(deleteProduct.pending, (state) => {
         state.isLoading = true;
@@ -195,13 +195,13 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
-        toast.success("Product deleted successfully");
+        toast.success("Producto eliminado");
       })
       .addCase(deleteProduct.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        toast.error(action.payload);
+        toast.error("Ocurrió un error");
       })
       .addCase(getProduct.pending, (state) => {
         state.isLoading = true;
@@ -216,7 +216,7 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        toast.error(action.payload);
+        toast.error("Error al obtener producto");
       })
       .addCase(updateProduct.pending, (state) => {
         state.isLoading = true;
@@ -225,13 +225,13 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
-        toast.success("Product updated successfully");
+        toast.success("Producto actualizado");
       })
       .addCase(updateProduct.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        toast.error(action.payload);
+        toast.error("Error al actualizar producto");
       });
   },
 });
