@@ -2,6 +2,7 @@ import React from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Card from "../../card/Card";
+import { useState } from "react";
 
 import "./ProductForm.scss";
 
@@ -15,6 +16,9 @@ const ProductForm = ({
   handleImageChange,
   saveProduct,
 }) => {
+
+  const [category, setCategory] = useState(true);
+
   return (
     <div className="add-product">
       <Card cardClass={"card"}>
@@ -48,13 +52,46 @@ const ProductForm = ({
           />
 
           <label>Product Category:</label>
-          <input
+          {/* <input
             type="text"
             placeholder="Product Category"
             name="category"
             value={product?.category}
             onChange={handleInputChange}
+          /> */}
+
+          {/* crear checkbox, si esta activado muestra el insput, si no un select */}
+          
+          <input
+            type="checkbox"
+            name="category"
+            value={category}
+            onChange={() => setCategory(!category)}
           />
+
+          {category ? (
+            <div>
+              <label>Crear categoría</label>
+              <input
+                type="text"
+                placeholder="Product Category"
+                name="category"
+                value={product?.category}
+                onChange={handleInputChange}
+              />
+            </div>
+          ) : (
+            <div>
+              <label>Seleccionar categoría</label>
+              <select
+                name="category"
+                onChange={handleInputChange}
+              >
+                <option value="">Select Category</option>
+                <option value="Mountain Bikes">Mountain Bikes</option>
+              </select>
+            </div>
+          )}
 
           <label>Product Price:</label>
           <input
