@@ -18,7 +18,7 @@ export const registerUser = async (userData) => {
       { withCredentials: true }
     );
     if (response.statusText === "OK") {
-      toast.success("User Registered successfully");
+      toast.success("Registro exitoso");
     }
     return response.data;
   } catch (error) {
@@ -26,7 +26,8 @@ export const registerUser = async (userData) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    console.log(error);
+    toast.error("Registro fallido");
   }
 };
 
@@ -38,7 +39,7 @@ export const loginUser = async (userData) => {
       userData
     );
     if (response.statusText === "OK") {
-      toast.success("Login Successful...");
+      toast.success("Sesión iniciada");
     }
     return response.data;
   } catch (error) {
@@ -46,7 +47,7 @@ export const loginUser = async (userData) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    toast.error("Ocurrió un error");
   }
 };
 
@@ -59,7 +60,7 @@ export const logoutUser = async () => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    toast.error("Ocurrió un error");
   }
 };
 
@@ -70,13 +71,13 @@ export const forgotPassword = async (userData) => {
       `${BACKEND_URL}/api/users/forgotpassword`,
       userData
     );
-    toast.success(response.data.message);
+    toast.success("Correo enviado");
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    toast.error("Ocurrió un error");
   }
 };
 
@@ -93,7 +94,7 @@ export const resetPassword = async (userData, resetToken) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    toast.error("Ocurrió un error");
   }
 };
 
@@ -107,7 +108,7 @@ export const getLoginStatus = async () => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    toast.error("Ocurrió un error");
   }
 };
 // Get User Profile
@@ -120,7 +121,7 @@ export const getUser = async () => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    toast.error("Error obteniendo perfil");
   }
 };
 // Update Profile
@@ -136,7 +137,7 @@ export const updateUser = async (formData) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    toast.error("Ocurrió un error");
   }
 };
 // Update Profile
@@ -152,6 +153,6 @@ export const changePassword = async (formData) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    toast.error("Ocurrió un error");
   }
 };

@@ -75,14 +75,14 @@ const EditProfile = () => {
 
         const data = await updateUser(formData);
         console.log(data);
-        toast.success("User updated");
+        toast.success("Usuario actualizado");
         navigate("/profile");
         setIsLoading(false);
       }
     } catch (error) {
       console.log(error);
       setIsLoading(false);
-      toast.error(error.message);
+      toast.error("Ocurrió un error");
     }
   };
 

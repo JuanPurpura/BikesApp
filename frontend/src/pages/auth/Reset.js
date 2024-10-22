@@ -26,10 +26,10 @@ const Reset = () => {
     e.preventDefault();
 
     if (password.length < 6) {
-      return toast.error("Passwords must be up to 6 characters");
+      return toast.error("La contraseña debe tener al menos 6 caracteres");
     }
     if (password !== password2) {
-      return toast.error("Passwords do not match");
+      return toast.error("Las contraseñas no coinciden");
     }
 
     const userData = {
@@ -39,7 +39,7 @@ const Reset = () => {
 
     try {
       const data = await resetPassword(userData, resetToken);
-      toast.success(data.message);
+      toast.success("Contraseña cambiada exitosamente");
     } catch (error) {
       console.log(error.message);
     }
